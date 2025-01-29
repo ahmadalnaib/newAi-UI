@@ -116,7 +116,7 @@
                 <LoadingCard />
             </div>
         </div>
-
+        <div class="relative">
         <div
             v-if="pageShow"
             class="mx-auto max-w-full px-6 sm:px-8 lg:px-10 rounded-lg mb-12"
@@ -245,6 +245,10 @@
                 </div>
             </div>
         </div>
+    </div>
+        <div v-if="isEditing" class="loading-overlay fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
+            <EditingLoading/>
+    </div>
     </AuthenticatedLayout>
 </template>
 
@@ -254,6 +258,7 @@ import { Head, Link, useForm } from "@inertiajs/vue3";
 import { ref, watch, nextTick, computed } from "vue";
 import CodeMirror from "@/Components/CodeMirror.vue";
 import LoadingCard from "@/Components/LoadingCard.vue";
+import EditingLoading from "@/Components/EditingLoading.vue";
 import {
     CodeBracketIcon,
     EyeIcon,
@@ -269,6 +274,7 @@ const pageShow = ref(false);
 const showForm = ref(true);
 const prompt = ref("");
 const isDisabled = ref(false);
+const isEditing = ref(false);
 const showAllTypes = ref(false); // Added
 const activeTab = ref("preview");
 
@@ -375,17 +381,20 @@ const generateWithAI = () => {
 };
 
 const editAiCode = () => {
+    isEditing.value = true;
     isDisabled.value = true;
     form3.post("/editgenerate", {
         onSuccess: async (response) => {
             form3.reset();
             isDisabled.value = false;
+            isEditing.value = false;
             await nextTick();
             updateIframeContent();
         },
         onError: () => {
             alert("Failed to generate code.");
             isDisabled.value = false;
+            isEditing.value = false;
         },
     });
 };
