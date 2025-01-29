@@ -179,14 +179,14 @@ watch(activeTab, async (newTab) => {
                     </div>
                     <div class="mt-20" v-if="props.hasAccess">
                         <div
-                            class="container mx-auto p-8 bg-white m-5 rounded-lg"
+                            class="container mx-auto p-4 sm:p-8 bg-white m-5 rounded-lg"
                             v-if="showForm"
                         >
                             <form
                                 @submit.prevent="generateWithFreeAI"
                                 class="mb-8 space-y-6"
                             >
-                                <div class="flex items-center space-x-6 mb-14">
+                                <div class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-6 mb-14">
                                     <input
                                         v-model="form.prompt"
                                         placeholder="Describe what you want to generate"
@@ -227,7 +227,7 @@ watch(activeTab, async (newTab) => {
                                         </svg>
                                     </button>
                                 </div>
-                                <div class="flex justify-center space-x-4 mt-8">
+                                <div class="flex flex-col md:flex-row flex-wrap justify-center space-y-4 md:space-y-0 md:space-x-4 mt-8">
                                     <button
                                         type="submit"
                                         v-for="type in displayedTypes"
