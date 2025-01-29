@@ -273,7 +273,7 @@ watch(activeTab, async (newTab) => {
                             <LoadingCard />
                         </div>
                     </div>
-                    <div v-if="pageShow" class="bg-white p-8 rounded-lg">
+                    <div v-if="pageShow" class="bg-white p-8 rounded-lg mt-20">
                         <!-- Tab Navigation -->
                         <div class="flex border-b border-gray-200 mb-6">
                             <button

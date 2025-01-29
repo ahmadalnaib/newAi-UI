@@ -24,7 +24,7 @@ class HomeController extends Controller
         $sessionId = request()->session()->getId();
 
         // Check if the IP address is already in the database
-        $hasAccess = !AiUse::where('ip_address', $userIp)->where('session_id', $sessionId)->exists();
+        $hasAccess = !auth()->check() && !AiUse::where('ip_address', $userIp)->exists();
         $plans = Plan::all();
 
 
