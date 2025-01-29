@@ -196,7 +196,8 @@ class TailwindCodeController extends Controller
 
                 // Update the session with the edited Tailwind code
                 // Cache::put('generatedTailwind', $generatedText);
-                $originalTailwind = session('generatedTailwind');
+                // $originalTailwind = session('generatedTailwind');
+                session(['generatedTailwind' => $generatedText]);
 
                 return Inertia::render('Tailwind/Create', [
                     'generatedTailwind' => $generatedText,
