@@ -1,9 +1,11 @@
 <template>
-    <div class="min-h-screen bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto p-6">
+    <div class="min-h-screen bg-gray-900 text-white flex flex-col items-center">
+        <HeaderWithoutPlansAndFeature />
+        <div class="w-full max-w-7xl p-6 mt-16 bg-gray-800 rounded-lg shadow-lg" style="margin-top: 10rem;">
+          
             <iframe
                 ref="previewIframe"
-                class="w-full h-80 border-none"
+                class="w-full h-96 border-none rounded-lg shadow-lg"
                 sandbox="allow-scripts allow-same-origin"
             ></iframe>
         </div>
@@ -11,6 +13,7 @@
 </template>
 
 <script setup>
+import HeaderWithoutPlansAndFeature from "@/Components/HeaderWithoutPlansAndFeature.vue";
 import { ref, watch, onMounted } from "vue";
 import { usePage } from "@inertiajs/vue3";
 
@@ -53,7 +56,5 @@ onMounted(() => {
 <style scoped>
 iframe {
     height: 800px;
-
 }
-
 </style>
