@@ -12,7 +12,9 @@ class ComponentController extends Controller
 
     public function index()
     {
-        $designs = TailwindCode::where('user_id', 1)->get();
+        $designs = TailwindCode::where('user_id', 1)
+        ->orderBy('created_at', 'desc')
+        ->get();
         return Inertia::render('Design/Index', [
             'designs' => $designs
         ]);

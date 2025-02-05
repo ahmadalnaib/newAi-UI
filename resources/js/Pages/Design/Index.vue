@@ -1,4 +1,5 @@
 <template>
+        <Head title="UI components" />
     <div class="min-h-screen bg-gray-900 text-white flex flex-col items-center">
         <!-- Include the modified Header component -->
         <HeaderWithoutPlansAndFeature />
@@ -30,7 +31,7 @@
 
 <script setup>
 import HeaderWithoutPlansAndFeature from "@/Components/HeaderWithoutPlansAndFeature.vue";
-
+import {Head } from "@inertiajs/vue3";
 defineProps({
     designs: Array,
 });

@@ -1,4 +1,5 @@
 <template>
+           <Head title="UI components" />
     <div class="min-h-screen bg-gray-900 text-white flex flex-col items-center">
         <HeaderWithoutPlansAndFeature />
         <div class="w-full max-w-7xl p-6 mt-16 bg-gray-800 rounded-lg shadow-lg" style="margin-top: 10rem;">
@@ -15,7 +16,7 @@
 <script setup>
 import HeaderWithoutPlansAndFeature from "@/Components/HeaderWithoutPlansAndFeature.vue";
 import { ref, watch, onMounted } from "vue";
-import { usePage } from "@inertiajs/vue3";
+import { usePage,Head } from "@inertiajs/vue3";
 
 const { props } = usePage();
 const { tailwindCode } = props;
