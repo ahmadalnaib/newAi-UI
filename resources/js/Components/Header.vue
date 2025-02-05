@@ -13,6 +13,7 @@
         <Link href="/" class="text-lg font-semibold text-white">Home</Link>
         <a href="#plans" class="text-lg font-semibold text-white">Plans</a>
         <Link href="#feature" class="text-lg font-semibold text-white">Feature</Link>
+        <Link href="/design" class="text-lg font-semibold text-white">Components</Link>
       </div>
 
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
