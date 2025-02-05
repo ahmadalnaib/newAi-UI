@@ -11,6 +11,7 @@ use App\Http\Controllers\TermsController;
 use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ComponentController;
 use App\Http\Middleware\RedirectIfCancelled;
 use App\Http\Middleware\RedirectIfSubscribed;
 use App\Http\Controllers\MembershipController;
@@ -29,6 +30,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/plans', [PlanController::class, 'index'])->name('plans');
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 });
+
+
+// design routes
+Route::get('/design', [ComponentController::class, 'index'])->name('design');
+Route::get('/design/{tailwindCode:slug}', [ComponentController::class, 'show'])->name('design.show');
 
 
 // Tailwind code routes
